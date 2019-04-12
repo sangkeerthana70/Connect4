@@ -1,0 +1,52 @@
+﻿ 
+ 
+       /*
+        public void DrawBlankSpacesInCell(char[] data)
+        {
+            int row;
+            for (row = 1; row < WidthOfBoard; row++)
+                Console.Write("  " + data[row - 1] + "  |");
+
+            Console.WriteLine("  " + data[row - 1] + "  |");
+        }
+
+
+        public void DrawBottomLinesOfCell()
+        {
+            for (int row = 1; row < WidthOfBoard; row++)
+                Console.Write("_____|");
+
+            Console.WriteLine("_____|");
+        }
+
+
+        public void DrawGameBoard(char[,] moves)
+        {
+		    // since each grid in the board has three rows printed each time
+			// the DrawBlankSpaces and DrawBottomLinesOfCell we create a single 
+			//dimensional array of blanks to populate blank spaces in the board
+			// and the rows will be populated with moves of 'X' or 'O' 's.
+
+            char[] row = new char[7];
+            char[] blanks = new char[7];
+			// first polulate the blank array for the first row in the connect4  board
+            for (int i = 0; i < blanks.Length; i++)
+            {
+                blanks[i] = ' ';
+            }
+
+            for (int column = 0; column < HeightOfBoard; column++)
+            {
+			    // pass in the blank array
+                DrawBlankSpacesInCell(blanks);
+                for (int i = 0; i < row.Length; i++)
+                {
+				    // next populate the second row array in the Connect4 grid
+                    row[i] = moves[column, i];
+                }
+				// populate the row array with the moves and then pass it
+                DrawBlankSpacesInCell(row);
+                DrawBottomLinesOfCell();
+            }
+        }
+        */
