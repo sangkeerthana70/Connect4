@@ -92,5 +92,37 @@ namespace DrawBoardV4Suerekha
             this.GameState[j - 1, c] = p;
 
         }
+
+        // GamrState is a instance variable which will be passed as a parameter from tests
+        public bool ValidateBoard()
+        {
+            int noOfX = 0;
+            int noOfO = 0;
+
+            for(int row = 0; row < GameState.GetLength(0); row++)
+            {
+                for(int col = 0; col < GameState.GetLength(1); col++)
+                {
+                    if(GameState[row, col] == 'X')
+                    {
+                        noOfX += 1;
+                    }
+                    if(GameState[row, col] == 'O')
+                    {
+                        noOfO += 1;
+                    }
+                }
+            }
+            if(noOfX == noOfO)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
     }
 }
