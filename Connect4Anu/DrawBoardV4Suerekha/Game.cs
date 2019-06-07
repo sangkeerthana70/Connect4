@@ -106,10 +106,12 @@ namespace DrawBoardV4Suerekha
                     if(GameState[row, col] == 'X')
                     {
                         noOfX += 1;
+                        Console.WriteLine("X" + noOfX);
                     }
                     if(GameState[row, col] == 'O')
                     {
                         noOfO += 1;
+                        Console.WriteLine("O" + noOfO);
                     }
                 }
             }
