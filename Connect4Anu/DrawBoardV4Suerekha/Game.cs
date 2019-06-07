@@ -126,5 +126,10 @@ namespace DrawBoardV4Suerekha
 
         }
 
+        public string DetermineWinner()
+        {
+
+        }
+
     }
 }

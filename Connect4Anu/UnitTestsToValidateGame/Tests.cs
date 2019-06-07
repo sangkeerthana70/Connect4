@@ -47,5 +47,22 @@ namespace UnitTestsToValidateGame
             Assert.AreEqual(expected, actual);
 
         }
+
+        [Test]
+        public void FourConsecutiveHorizontalCells_RetunsAWinner()
+        {
+
+        }
+
+        [Test]
+        public void FourConsecutiveVerticalCells_RetunsAWinner()
+        {
+
+        }
+        [Test]
+        public void FourConsecutiveDiagonalCells_RetunsAWinner()
+        {
+
+        }
     }
 }
