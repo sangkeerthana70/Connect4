@@ -126,9 +126,28 @@ namespace DrawBoardV4Suerekha
 
         }
 
-        public string DetermineWinner()
+        public char DetermineWinner()
         {
+            char winner = ' ';
+           
+            for(int row = 0; row < GameState.GetLength(0); row++)
+            {
+                for(int col = 0; col < GameState.GetLength(1); col++)
+                {
+                    if(GameState[row, col] == player1 && GameState[row, col + 1] == player1 && GameState[row, col+2] == player1 && GameState[row, col+ 3] == player1)
+                    {
+                        winner = player1;
+                    }
+                    if (GameState[row, col] == player2 && GameState[row, col + 1] == player2 && GameState[row, col + 2] == player2 && GameState[row, col + 3] == player2)
+                    {
+                        winner = player2;
+                    }
 
+
+
+                }
+            }
+            return winner;
         }
 
     }

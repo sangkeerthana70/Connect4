@@ -7,16 +7,17 @@ namespace UnitTestsToValidateGame
     [TestFixture]
     public class Tests
     {
-        //[SetUp]
-        //public void TestSetUp()
-        //{
+        [SetUp]
+        public void TestSetUp()
+        {
             Board board = new Board();
-            
-        //}
+
+        }
 
         [Test]
         public void DifferentNumberOfMovesReturnsFalse()
         {
+            // player1 represents 'X' and Palyer2 represents 'O' refer Game constructor
             Game game = new Game(6, 7, 'X', 'O');
             game.GameState[0, 0] = 'X';
             game.GameState[1, 0] = 'O';
@@ -49,18 +50,65 @@ namespace UnitTestsToValidateGame
         }
 
         [Test]
-        public void FourConsecutiveHorizontalCells_RetunsAWinner()
+        public void FourConsecutiveHorizontalXs_RetunsXAsWinner()
+        {
+            Game game = new Game(6, 7, 'X', 'O');
+            game.GameState[0, 0] = 'X';
+            game.GameState[0, 1] = 'X';
+            game.GameState[0, 2] = 'X';
+            game.GameState[0, 3] = 'X';
+            game.GameState[0, 4] = 'X';
+
+            char expected = 'X';
+            char actual = game.DetermineWinner();
+            System.Console.WriteLine("actual: " + actual);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void FourConsecutiveHorizontalOs_RetunsOAsWinner()
+        {
+            Game game = new Game(6, 7, 'X', 'O');
+            game.GameState[3, 0] = 'O';
+            game.GameState[3, 1] = 'O';
+            game.GameState[3, 2] = 'O';
+            game.GameState[3, 3] = 'O';
+            game.GameState[3, 4] = 'O';
+            char expected = 'O';
+            char actual = game.DetermineWinner();
+            System.Console.WriteLine("actual: " + actual);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void FourConsecutiveVerticalXs_RetunXAsWinner()
+        {
+            Game game = new Game(6, 7, 'X', 'O');
+            game.GameState[3, 0] = 'O';
+            game.GameState[3, 1] = 'O';
+            game.GameState[3, 2] = 'O';
+            game.GameState[3, 3] = 'O';
+            game.GameState[3, 4] = 'O';
+            char expected = 'O';
+            char actual = game.DetermineWinner();
+            System.Console.WriteLine("actual: " + actual);
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [Test]
+        public void FourConsecutiveVerticalOs_RetunsOAsWinner()
+        {
+
+        }
+        [Test]
+        public void FourConsecutiveDiagonalXs_RetunsXAsWinner()
         {
 
         }
 
         [Test]
-        public void FourConsecutiveVerticalCells_RetunsAWinner()
-        {
-
-        }
-        [Test]
-        public void FourConsecutiveDiagonalCells_RetunsAWinner()
+        public void FourConsecutiveDiagonalOs_RetunsOAsWinner()
         {
 
         }
