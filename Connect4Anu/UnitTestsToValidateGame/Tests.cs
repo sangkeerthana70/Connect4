@@ -79,7 +79,7 @@ namespace UnitTestsToValidateGame
             System.Console.WriteLine("actual: " + actual);
             Assert.AreEqual(expected, actual);
         }
-
+        /*
         [Test]
         public void FourConsecutiveVerticalXs_RetunXAsWinner()
         {
@@ -130,6 +130,7 @@ namespace UnitTestsToValidateGame
         [Test]
         public void FourConsecutiveDiagonalOs_RetunsOAsWinner()
         {
+
             Game game = new Game(6, 7, 'X', 'O');
 
             game.GameState[5, 6] = 'O';
@@ -142,5 +143,6 @@ namespace UnitTestsToValidateGame
             Assert.AreEqual(expected, actual);
 
         }
+        */
     }
 }
