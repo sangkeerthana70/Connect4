@@ -85,6 +85,22 @@ namespace UnitTestsToValidateGame
         {
             Game game = new Game(6, 7, 'X', 'O');
             
+            game.GameState[2, 0] = 'X';
+            game.GameState[3, 0] = 'X';
+            game.GameState[4, 0] = 'X';
+            game.GameState[5, 0] = 'X';
+            char expected = 'X';
+            char actual = game.DetermineWinner();
+            System.Console.WriteLine("actual: " + actual);
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [Test]
+        public void FourConsecutiveVerticalOs_RetunsOAsWinner()
+        {
+            Game game = new Game(6, 7, 'X', 'O');
+
             game.GameState[2, 0] = 'O';
             game.GameState[3, 0] = 'O';
             game.GameState[4, 0] = 'O';
@@ -95,21 +111,35 @@ namespace UnitTestsToValidateGame
             Assert.AreEqual(expected, actual);
 
         }
-
-        [Test]
-        public void FourConsecutiveVerticalOs_RetunsOAsWinner()
-        {
-
-        }
         [Test]
         public void FourConsecutiveDiagonalXs_RetunsXAsWinner()
         {
+            Game game = new Game(6, 7, 'X', 'O');
+
+            game.GameState[5, 6] = 'X';
+            game.GameState[4, 5] = 'X';
+            game.GameState[3, 4] = 'X';
+            game.GameState[2, 3] = 'X';
+            char expected = 'X';
+            char actual = game.DetermineWinner();
+            System.Console.WriteLine("actual: " + actual);
+            Assert.AreEqual(expected, actual);
 
         }
 
         [Test]
         public void FourConsecutiveDiagonalOs_RetunsOAsWinner()
         {
+            Game game = new Game(6, 7, 'X', 'O');
+
+            game.GameState[5, 6] = 'O';
+            game.GameState[4, 5] = 'O';
+            game.GameState[3, 4] = 'O';
+            game.GameState[2, 3] = 'O';
+            char expected = 'O';
+            char actual = game.DetermineWinner();
+            System.Console.WriteLine("actual: " + actual);
+            Assert.AreEqual(expected, actual);
 
         }
     }

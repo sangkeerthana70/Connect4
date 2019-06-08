@@ -129,6 +129,8 @@ namespace DrawBoardV4Suerekha
         public char DetermineWinner()
         {
             char winner = ' ';
+            Console.WriteLine("rows " + GameState.GetLength(0));
+            Console.WriteLine("columns " + GameState.GetLength(1));
            
             for(int row = 0; row < GameState.GetLength(0); row++)
             {
@@ -138,38 +140,61 @@ namespace DrawBoardV4Suerekha
                     if(GameState[row, col] == player1 && GameState[row, col + 1] == player1 && GameState[row, col+2] == player1 && GameState[row, col+ 3] == player1)
                     {
                         Console.WriteLine("in Player1 horizontzl win");
-                        if(col == GameState.GetLength(0) - 2)
+                        Console.WriteLine("GameState.GetLength(1) - 2 " + (GameState.GetLength(1) - 3));
+                        if (col == GameState.GetLength(1) - 2)
                         {
                             break;
                         }
                         else
-                            winner = player1;
+                            return winner = player1;
                     }
                     // horizontal 'O' 's declares player2 as winner
                     if (GameState[row, col] == player2 && GameState[row, col + 1] == player2 && GameState[row, col + 2] == player2 && GameState[row, col + 3] == player2)
                     {
                         Console.WriteLine("in player2 horizontal win");
-                        if (col == GameState.GetLength(0) - 2)
+                        Console.WriteLine("GameState.GetLength(1) - 2 " + (GameState.GetLength(1) - 3));
+                        if (col == GameState.GetLength(1) - 2)
                         {
                             break;
                         }
                         else
-                            winner = player2;
+                            return winner = player2;
                     }
 
                     // vertical 'X' 's declares player1 as winner
                     
                     
-                    if (GameState[row, col] == player1 && GameState[row + 1, col] == player1 && GameState[row + 2, col] == player1 && GameState[row + 3, col] == player1)
+                    if (GameState[row, col] == player1 && GameState[row - 1, col] == player1 && GameState[row - 2, col] == player1 && GameState[row - 3, col] == player1)
                     {
-                        Console.WriteLine("r:{0} c:{1}", row, col);
-                        Console.WriteLine("in vertical plaer1 win");
-                        if(row == GameState.GetLength(1) - 2)
-                        {
-                            break;
-                        }
-                        else
-                            winner = player1;
+                        Console.WriteLine("r:{0} c:{1} value: {2} ", row, col, GameState[row, col]);
+                        Console.WriteLine("r:{0} c:{1} value: {2} ", row - 1, col, GameState[row - 1, col]);
+                        Console.WriteLine("r:{0} c:{1} value: {2} ", row - 2, col, GameState[row - 2, col]);
+                        Console.WriteLine("r:{0} c:{1} value: {2} ", row - 3, col, GameState[row - 3, col]);
+                        Console.WriteLine("r:{0} c:{1} value: {2} ", row - 4, col, GameState[row - 4, col]);
+                        //Console.WriteLine("r:{0} c:{1} value: {2} ", row - 5, col, GameState[row + 5, col]);
+                        Console.WriteLine("in vertical player1 win");
+                        Console.WriteLine("GameState.GetLength(0) - 3 " + (GameState.GetLength(0) - 2));
+                        //if (row == GameState.GetLength(0) - 2)
+                        //{
+                        //    break;
+                        //}
+                        //else
+                        winner = player1;
+                        
+                    }
+
+                    if (GameState[row, col] == player2 && GameState[row - 1, col] == player2 && GameState[row - 2, col] == player2 && GameState[row - 3, col] == player2)
+                    {
+                        
+                        Console.WriteLine("in vertical player2 win");
+                        Console.WriteLine("GameState.GetLength(0) - 3 " + (GameState.GetLength(0) - 2));
+                        //if (row == GameState.GetLength(0) - 2)
+                        //{
+                        //    break;
+                        //}
+                        //else
+                        winner = player2;
+                       
                     }
 
                 }
