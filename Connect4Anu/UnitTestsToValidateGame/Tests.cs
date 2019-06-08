@@ -84,11 +84,11 @@ namespace UnitTestsToValidateGame
         public void FourConsecutiveVerticalXs_RetunXAsWinner()
         {
             Game game = new Game(6, 7, 'X', 'O');
+            
+            game.GameState[2, 0] = 'O';
             game.GameState[3, 0] = 'O';
-            game.GameState[3, 1] = 'O';
-            game.GameState[3, 2] = 'O';
-            game.GameState[3, 3] = 'O';
-            game.GameState[3, 4] = 'O';
+            game.GameState[4, 0] = 'O';
+            game.GameState[5, 0] = 'O';
             char expected = 'O';
             char actual = game.DetermineWinner();
             System.Console.WriteLine("actual: " + actual);

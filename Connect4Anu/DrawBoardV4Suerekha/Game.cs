@@ -134,16 +134,43 @@ namespace DrawBoardV4Suerekha
             {
                 for(int col = 0; col < GameState.GetLength(1); col++)
                 {
+                    // horizontal 'X' 's declares player1 as winner 
                     if(GameState[row, col] == player1 && GameState[row, col + 1] == player1 && GameState[row, col+2] == player1 && GameState[row, col+ 3] == player1)
                     {
-                        winner = player1;
+                        Console.WriteLine("in Player1 horizontzl win");
+                        if(col == GameState.GetLength(0) - 2)
+                        {
+                            break;
+                        }
+                        else
+                            winner = player1;
                     }
+                    // horizontal 'O' 's declares player2 as winner
                     if (GameState[row, col] == player2 && GameState[row, col + 1] == player2 && GameState[row, col + 2] == player2 && GameState[row, col + 3] == player2)
                     {
-                        winner = player2;
+                        Console.WriteLine("in player2 horizontal win");
+                        if (col == GameState.GetLength(0) - 2)
+                        {
+                            break;
+                        }
+                        else
+                            winner = player2;
                     }
 
-
+                    // vertical 'X' 's declares player1 as winner
+                    
+                    
+                    if (GameState[row, col] == player1 && GameState[row + 1, col] == player1 && GameState[row + 2, col] == player1 && GameState[row + 3, col] == player1)
+                    {
+                        Console.WriteLine("r:{0} c:{1}", row, col);
+                        Console.WriteLine("in vertical plaer1 win");
+                        if(row == GameState.GetLength(1) - 2)
+                        {
+                            break;
+                        }
+                        else
+                            winner = player1;
+                    }
 
                 }
             }
