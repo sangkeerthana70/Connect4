@@ -105,7 +105,7 @@ namespace DrawBoardV4Suerekha
                 {
                     Console.WriteLine("row = {0}; col = {1}", row, col);
                     Console.WriteLine("rowLength - 2 " + (rowLength-2));
-                    if (row <= rowLength - 2)
+                    if (row < rowLength - 2)
                     {
                         
                         Console.WriteLine("GameState[row, col] = " + GameState[row, col]);
@@ -117,9 +117,22 @@ namespace DrawBoardV4Suerekha
                            (GameState[row, col] == GameState[row, col + 2]) && 
                            (GameState[row, col] == GameState[row, col + 3]))
                           {
-                            Console.WriteLine("inside horizontal game validation");
+                            Console.WriteLine("inside horizontal 'X' game validation");
                             return GameState[row, col];
                           }
+                    }
+
+                    if(col < colLength - 2)
+                    {
+                        if((GameState[row, col] != '_') &&
+                            (GameState[row, col] == GameState[row + 1, col]) &&
+                            (GameState[row, col] == GameState[row + 2, col]) &&
+                            (GameState[row, col] == GameState[row + 3, col]))
+                        {
+                            Console.WriteLine("inside vertical 'O' game validation");
+                            return GameState[row, col];
+                        }
+
                     }
                 }
             }

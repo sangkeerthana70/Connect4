@@ -73,13 +73,13 @@ namespace UnitTestsToValidateGame
             game.GameState[3, 1] = 'O';
             game.GameState[3, 2] = 'O';
             game.GameState[3, 3] = 'O';
-            game.GameState[3, 4] = 'O';
+            //game.GameState[3, 4] = 'O';
             char expected = 'O';
             char actual = game.DetermineWinner();
             System.Console.WriteLine("actual: " + actual);
             Assert.AreEqual(expected, actual);
         }
-        /*
+        
         [Test]
         public void FourConsecutiveVerticalXs_RetunXAsWinner()
         {
@@ -111,6 +111,7 @@ namespace UnitTestsToValidateGame
             Assert.AreEqual(expected, actual);
 
         }
+        /*
         [Test]
         public void FourConsecutiveDiagonalXs_RetunsXAsWinner()
         {
