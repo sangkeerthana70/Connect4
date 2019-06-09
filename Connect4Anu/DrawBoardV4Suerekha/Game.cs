@@ -104,10 +104,9 @@ namespace DrawBoardV4Suerekha
                 for(int col = 0; col < colLength; col++)
                 {
                     Console.WriteLine("row = {0}; col = {1}", row, col);
-                    Console.WriteLine("rowLength - 2 " + (rowLength-2));
-                    if (row < rowLength - 2)
+                    if (col < colLength - 3)
                     {
-                        
+                        Console.WriteLine("inside horizontal game validation");
                         Console.WriteLine("GameState[row, col] = " + GameState[row, col]);
                         Console.WriteLine("GameState[row, col+1] = " + GameState[row, col+1]);
                         Console.WriteLine("GameState[row, col+2] = " + GameState[row, col+2]);
@@ -117,22 +116,56 @@ namespace DrawBoardV4Suerekha
                            (GameState[row, col] == GameState[row, col + 2]) && 
                            (GameState[row, col] == GameState[row, col + 3]))
                           {
-                            Console.WriteLine("inside horizontal 'X' game validation");
+                            
                             return GameState[row, col];
                           }
                     }
 
-                    if(col < colLength - 2)
+                    if(row < rowLength - 3)
                     {
-                        if((GameState[row, col] != '_') &&
+                        Console.WriteLine("inside vertical game validation");
+                        Console.WriteLine("GameState[row , col] = " + GameState[row , col]);
+                        Console.WriteLine("GameState[row + 1, col] = " + GameState[row + 1, col]);
+                        Console.WriteLine("GameState[row + 2, col] = " + GameState[row + 2, col]);
+                        Console.WriteLine("GameState[row + 3, col] = " + GameState[row + 3, col]);
+                        if ((GameState[row, col] != '_') &&
                             (GameState[row, col] == GameState[row + 1, col]) &&
                             (GameState[row, col] == GameState[row + 2, col]) &&
                             (GameState[row, col] == GameState[row + 3, col]))
-                        {
-                            Console.WriteLine("inside vertical 'O' game validation");
+                        {                   
                             return GameState[row, col];
                         }
+                    }
 
+                    if(col < colLength - 3 && row < rowLength - 3 )
+                    {
+                        Console.WriteLine("inside diagonal validation for the diagonal left to right");
+                        Console.WriteLine("row+1:{0}, col+1:{1}, Value: {2} " , row, col, GameState[row + 1, col + 1]);
+                        Console.WriteLine("row+2:{0}, col+2:{1}, Value: {2} ", row, col, GameState[row + 2, col + 2]);
+                        Console.WriteLine("row+3:{0}, col+3:{1}, Value: {2} ", row, col, GameState[row + 3, col + 3]);
+                        if ((GameState[row, col] != '_') &&
+                           (GameState[row, col] == GameState[row + 1, col + 1]) &&
+                           (GameState[row, col] == GameState[row + 2, col + 2]) &&
+                           (GameState[row, col] == GameState[row + 3, col + 3]))
+                        {
+                            return GameState[row, col];
+                        }
+                        
+                    }
+
+                    if (col > 3 && row < rowLength -3)
+                    {
+                        Console.WriteLine("inside diagonal validation for the diagonal right to left");
+                        Console.WriteLine("row + 1:{0}, col -1:{1}, Value: {2} ", row, col, GameState[row + 1, col - 1]);
+                        Console.WriteLine("row+ 2:{0}, col-2:{1}, Value: {2} ", row, col, GameState[row + 2, col - 2]);
+                        Console.WriteLine("row + 3:{0}, col-3:{1}, Value: {2} ", row, col, GameState[row + 3, col - 3]);
+                        if ((GameState[row, col] != '_') &&
+                           (GameState[row, col] == GameState[row + 1, col - 1]) &&
+                           (GameState[row, col] == GameState[row + 2, col - 2]) &&
+                           (GameState[row, col] == GameState[row + 3, col - 3]))
+                        {
+                            return GameState[row, col];
+                        }
                     }
                 }
             }

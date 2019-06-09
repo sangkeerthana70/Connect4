@@ -50,7 +50,7 @@ namespace UnitTestsToValidateGame
         }
 
         [Test]
-        public void FourConsecutiveHorizontalXs_RetunsXAsWinner()
+        public void FourConsecutiveHorizontalXs_RetunsPlayer1AsWinner()
         {
             Game game = new Game(6, 7, 'X', 'O');
             game.GameState[0, 0] = 'X';
@@ -66,7 +66,7 @@ namespace UnitTestsToValidateGame
         }
 
         [Test]
-        public void FourConsecutiveHorizontalOs_RetunsOAsWinner()
+        public void FourConsecutiveHorizontalOs_RetunsPlayer2AsWinner()
         {
             Game game = new Game(6, 7, 'X', 'O');
             game.GameState[3, 0] = 'O';
@@ -81,7 +81,7 @@ namespace UnitTestsToValidateGame
         }
         
         [Test]
-        public void FourConsecutiveVerticalXs_RetunXAsWinner()
+        public void FourConsecutiveVerticalXs_RetunsPlayer1AsWinner()
         {
             Game game = new Game(6, 7, 'X', 'O');
             
@@ -97,23 +97,23 @@ namespace UnitTestsToValidateGame
         }
 
         [Test]
-        public void FourConsecutiveVerticalOs_RetunsOAsWinner()
+        public void FourConsecutiveVerticalOs_RetunsPlayer2AsWinner()
         {
             Game game = new Game(6, 7, 'X', 'O');
 
-            game.GameState[2, 0] = 'O';
-            game.GameState[3, 0] = 'O';
-            game.GameState[4, 0] = 'O';
-            game.GameState[5, 0] = 'O';
+            game.GameState[2, 5] = 'O';
+            game.GameState[3, 5] = 'O';
+            game.GameState[4, 5] = 'O';
+            game.GameState[5, 5] = 'O';
             char expected = 'O';
             char actual = game.DetermineWinner();
             System.Console.WriteLine("actual: " + actual);
             Assert.AreEqual(expected, actual);
 
         }
-        /*
+        
         [Test]
-        public void FourConsecutiveDiagonalXs_RetunsXAsWinner()
+        public void FourConsecutiveDiagonalXs_RetunsPlayer1AsWinner()
         {
             Game game = new Game(6, 7, 'X', 'O');
 
@@ -129,21 +129,21 @@ namespace UnitTestsToValidateGame
         }
 
         [Test]
-        public void FourConsecutiveDiagonalOs_RetunsOAsWinner()
+        public void FourConsecutiveDiagonalOs_RetunsPlayer2AsWinner()
         {
 
             Game game = new Game(6, 7, 'X', 'O');
 
-            game.GameState[5, 6] = 'O';
-            game.GameState[4, 5] = 'O';
-            game.GameState[3, 4] = 'O';
-            game.GameState[2, 3] = 'O';
+            game.GameState[2, 2] = 'O';
+            game.GameState[3, 3] = 'O';
+            game.GameState[4, 4] = 'O';
+            game.GameState[5, 5] = 'O';
             char expected = 'O';
             char actual = game.DetermineWinner();
             System.Console.WriteLine("actual: " + actual);
             Assert.AreEqual(expected, actual);
 
         }
-        */
+        
     }
 }
