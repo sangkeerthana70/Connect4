@@ -155,10 +155,13 @@ namespace DrawBoardV4Suerekha
 
                     if (col > 3 && row < rowLength -3)
                     {
+                        
                         Console.WriteLine("inside diagonal validation for the diagonal right to left");
                         Console.WriteLine("row + 1:{0}, col -1:{1}, Value: {2} ", row, col, GameState[row + 1, col - 1]);
                         Console.WriteLine("row+ 2:{0}, col-2:{1}, Value: {2} ", row, col, GameState[row + 2, col - 2]);
                         Console.WriteLine("row + 3:{0}, col-3:{1}, Value: {2} ", row, col, GameState[row + 3, col - 3]);
+                        
+                       
                         if ((GameState[row, col] != '_') &&
                            (GameState[row, col] == GameState[row + 1, col - 1]) &&
                            (GameState[row, col] == GameState[row + 2, col - 2]) &&
@@ -166,6 +169,8 @@ namespace DrawBoardV4Suerekha
                         {
                             return GameState[row, col];
                         }
+                        
+
                     }
                 }
             }
